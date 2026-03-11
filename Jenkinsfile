@@ -1,0 +1,45 @@
+pipeline {
+
+    agent any
+
+    tools {
+        maven 'Maven'
+        jdk 'JDK21'
+    }
+
+    stages {
+
+        stage('Checkout') {
+            steps {
+                
+                git branch: 'main', url: 'https://github.com/Dj01-glitch/new_app.git'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                bat 'mvn clean compile'
+            }
+        }
+
+
+        stage('Build with Maven') {
+            steps {
+                bat 'mvn clean package'
+            }
+        }
+
+        stage('Deploy to Tomcat') {
+            steps {
+                bat 'copy target\\*.war "C:\\Program Files\\Apache Software Foundation\\Tomcat 10.1\\webapps\\"'
+            }
+        }
+
+        stage('Start Tomcat Server') {
+            steps {
+                bat '"C:\\Program Files\\Apache Software Foundation\\Tomcat 10.1\\bin\\startup.bat"'
+            }
+        }
+
+    }
+}
