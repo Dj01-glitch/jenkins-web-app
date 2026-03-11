@@ -12,7 +12,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 
-                git branch: 'master', url: 'https://github.com/ankithtrainer/jenkins-my-webapp'
+                git branch: 'master', url: 'https://github.com/Dj01-glitch/jenkins-web-app.git'
             }
         }
 
@@ -55,4 +55,5 @@ pipeline {
         }
 
     }
+
 }
