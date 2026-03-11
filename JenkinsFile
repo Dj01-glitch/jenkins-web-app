@@ -12,7 +12,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 
-                git branch: 'master', url: 'https://github.com/Dj01-glitch/jenkins-web-app.git'
+                git branch: 'main', url: 'https://github.com/Dj01-glitch/jenkins-web-app.git'
             }
         }
 
@@ -57,3 +57,4 @@ pipeline {
     }
 
 }
+
